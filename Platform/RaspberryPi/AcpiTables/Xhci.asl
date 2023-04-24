@@ -66,7 +66,7 @@ DefinitionBlock (__FILE__, "SSDT", 5, "RPIFDN", "RPI4XHCI", 2)
         Return (RBUF)
       }
 
-      Name (_DMA, ResourceTemplate() {
+      Name (DMXH, ResourceTemplate() {
         /*
          * XHC0 is limited to DMA to first 3GB. Note this
          * only applies to PCIe, not GENET or other devices
@@ -87,6 +87,10 @@ DefinitionBlock (__FILE__, "SSDT", 5, "RPIFDN", "RPI4XHCI", 2)
             ,
             )
       })
+
+      Method (_DMA, 0x0, Serialized) { // _DMA: DMA constraints
+        return (^DMXH);
+      }
 
       Device (XHC0)
       {
