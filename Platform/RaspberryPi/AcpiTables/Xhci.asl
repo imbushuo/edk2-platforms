@@ -26,7 +26,7 @@
  */
 #define XHCI_REG_LENGTH                 0x1000
 
-DefinitionBlock (__FILE__, "SSDT", 5, "RPIFDN", "RPI4XHCI", 2)
+DefinitionBlock (__FILE__, "SSDT", 6, "RPIFDN", "RPI4XHCI", 3)
 {
   Scope (\_SB_)
   {
